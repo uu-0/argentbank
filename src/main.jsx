@@ -1,6 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { Provider } from 'react-redux'
+import { store } from './app/store'
 
 import { createGlobalStyle } from 'styled-components'
 import { colors } from './style/colors'
@@ -15,36 +17,36 @@ import Footer from './components/Footer'
 
 const GlobalStyle = createGlobalStyle`
   html {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: ${colors.gray};
-}
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: ${colors.gray};
+  }
 
-body {
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-
+  body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
 `
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
-    <Router>
-      <GlobalStyle />
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/signIn" element={<SignIn />} />
-        <Route path="/profil" element={<Profil />} />
-        <Route path="/editprofil" element={<EditProfil />} />
-        <Route path="*" element={<Error />} />
-      </Routes>
-      <Footer />
-    </Router>
+    <Provider store={store}>
+      <Router>
+        <GlobalStyle />
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/signIn" element={<SignIn />} />
+          <Route path="/profil" element={<Profil />} />
+          <Route path="/editprofil" element={<EditProfil />} />
+          <Route path="*" element={<Error />} />
+        </Routes>
+        <Footer />
+      </Router>
+    </Provider>
   </React.StrictMode>
 )
