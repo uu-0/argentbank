@@ -72,6 +72,17 @@ const Content = styled.div`
   margin-bottom: 15%;
 `
 
+const InformationText = styled.h2`
+  padding-top: 100px;
+  color: white;
+  font-size: 20px;
+`
+
+const InformationSpan = styled.p`
+  padding-bottom: 800px;
+  color: white;
+`
+
 export default function Profile() {
   const [isEditing, setIsEditing] = useState(false)
   const [firstName, setFirstName] = useState('')
@@ -81,11 +92,24 @@ export default function Profile() {
   const [updateUserProfile] = useUpdateUserProfileMutation()
 
   if (isLoading) {
-    return <p>Loading...</p>
+    return (
+      <Container>
+        <InformationText>Loading...</InformationText>
+      </Container>
+    )
   }
 
   if (error) {
-    return <p>Error loading profile</p>
+    return (
+      <Container>
+        <InformationText>
+          Error loading Profile Page
+        </InformationText>
+        <InformationSpan>
+          You must be logged in to access this page
+        </InformationSpan>
+      </Container>
+    )
   }
 
   const handleEditClick = () => {
