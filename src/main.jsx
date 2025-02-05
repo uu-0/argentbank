@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { Provider } from 'react-redux'
-import { store } from './app/store'
+import { store } from './services/store'
 
 import { createGlobalStyle } from 'styled-components'
 import { colors } from './style/colors'
@@ -10,8 +10,7 @@ import { colors } from './style/colors'
 import Home from './pages/Home/'
 import Error from './pages/Error/'
 import SignIn from './pages/SignIn'
-import Profil from './pages/Profil'
-import EditProfil from './pages/EditProfil'
+import Profile from './pages/Profile'
 import Header from './components/Header'
 import Footer from './components/Footer'
 
@@ -41,8 +40,7 @@ root.render(
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/signIn" element={<SignIn />} />
-          <Route path="/profil" element={<Profil />} />
-          <Route path="/editprofil" element={<EditProfil />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="*" element={<Error />} />
         </Routes>
         <Footer />
