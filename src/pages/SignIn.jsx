@@ -80,7 +80,7 @@ const ErrorMessage = styled.p`
   text-align: center;
 `
 
-const SignIn = () => {
+export default function SignIn() {
   const [credentials, setCredentials] = useState({ email: '', password: '' })
   const [rememberMe, setRememberMe] = useState(false)
   const [error, setError] = useState(null)
@@ -156,5 +156,3 @@ const SignIn = () => {
     </Container>
   )
 }
-
-export default SignIn
