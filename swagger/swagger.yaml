@@ -117,7 +117,7 @@ paths:
           description: Internal Server Error
 
   /transactions:
-    post:
+    get:
       security:
         - Bearer: []
       tags:
@@ -139,13 +139,17 @@ paths:
             $ref: '#/definitions/TransactionGroupResponse'
         '400':
           description: Invalid request
+        '401':
+          description: Unauthenticated user
+        '403':
+          description: Unauthorized user
         '404':
           description: Transactions not found
         '500':
           description: Internal Server Error
 
   /transactions/{transactionId}:
-    post:
+    get:
       security:
         - Bearer: []
       tags:
@@ -172,11 +176,14 @@ paths:
             $ref: '#/definitions/TransactionDetails'
         '400':
           description: Invalid transaction ID
+        '401':
+          description: Unauthenticated user
+        '403':
+          description: Unauthorized user
         '404':
-          description: Transaction not found
+          description: Transactions not found
         '500':
           description: Internal Server Error
-
     put:
       security:
         - Bearer: []
@@ -210,18 +217,21 @@ paths:
             $ref: '#/definitions/ApiResponse'
         '400':
           description: Invalid fields
+        '401':
+            description: Unauthenticated user
+        '403':
+            description: Unauthorized user
         '404':
-          description: Transaction not found
+            description: Transactions not found
         '500':
-          description: Internal Server Error
-
+            description: Internal Server Error
     delete:
       security:
         - Bearer: []
       tags:
         - Transactions Module
-      summary: Delete transaction
-      description: Delete a specific transaction by its ID.
+      summary: Delete transaction notes
+      description: Delete a specific transaction notes by its ID.
       parameters:
         - in: header
           name: Authorization
@@ -242,10 +252,14 @@ paths:
             $ref: '#/definitions/ApiResponse'
         '400':
           description: Invalid transaction ID
+        '401':
+            description: Unauthenticated user
+        '403':
+            description: Unauthorized user
         '404':
-          description: Transaction not found
+            description: Transactions not found
         '500':
-          description: Internal Server Error
+            description: Internal Server Error
 
 securityDefinitions:
   Bearer:
