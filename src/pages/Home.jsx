@@ -11,7 +11,7 @@ import securityIcon from '/icon-security.png'
 const Banner = styled.div`
   width: 100vw;
   height: 400px;
-  background-image: url(${process.env.PUBLIC_URL + '/bank-tree.jpeg'});
+  background-image: url('/argentbank/bank-tree.jpeg'});
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 0% 33%;
