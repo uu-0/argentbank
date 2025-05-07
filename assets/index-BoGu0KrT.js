@@ -100,7 +100,7 @@ Error generating stack: `+a.message+`
 `;function ra({icon:n,title:i,text:u}){return Y.jsxs(PS,{children:[Y.jsx(OS,{src:n,alt:"icon"}),Y.jsx(IS,{children:i}),Y.jsx(NS,{children:u})]})}const TS="/argentbank/icon-chat.png",jS="/argentbank/icon-money.png",zS="/argentbank/icon-security.png",MS=fe.div`
   width: 100vw;
   height: 400px;
-  background-image: url('argentbank/bank-tree.jpeg'});
+  background-image: url('./bank-tree.jpeg'});
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 0% 33%;
